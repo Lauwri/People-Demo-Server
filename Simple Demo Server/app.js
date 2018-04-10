@@ -2,14 +2,12 @@ const port = 3000;
 const host = '0.0.0.0'
 
 const express = require('express');
-const cors = require('cors')
 const bodyParser = require('body-parser');
 
 //use express
 const app = express();
 
-//Enable cors and bodyparser
-app.use(cors());
+//Enable bodyparser
 app.use(bodyParser.json());
 
 var id = 4;
@@ -41,13 +39,6 @@ var people = [
     dateTime: '2018-03-15T23:59:00Z',
   }
 ];
-
-//Enable CORS
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 
 //get, post and delete people
